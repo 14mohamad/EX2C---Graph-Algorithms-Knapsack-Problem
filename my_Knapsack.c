@@ -40,6 +40,8 @@ int main() {
     char items[MAX_ITEMS] = {'A', 'B', 'C', 'D', 'E'};
     int values[MAX_ITEMS], weights[MAX_ITEMS], selected_bool[MAX_ITEMS] = {0};
     int i, max_profit;
+    
+    char result[MAX_ITEMS * 2 + 1]; // Initialize result array with extra space for commas and null-terminator
 
     printf("Enter the values and weights for each item:\n");
     for (i = 0; i < MAX_ITEMS; i++) {
@@ -51,14 +53,22 @@ int main() {
 
     printf("\nMaximum profit: %d\n", max_profit);
     printf("Items that give the maximum profit: [");
-    for (i = MAX_ITEMS - 1; i >= 0; i--) {
+    int result_index = 0;
+    for (i = 0; i < MAX_ITEMS; i++) {
         if (selected_bool[i] == 1) {
-            printf("%c", items[i]);
-            if (i-1 > 0)
-                printf(", ");
+            result[result_index++] = items[i];
+            if (result_index < MAX_ITEMS * 2 - 1) // Add comma if not last element
+            {
+                if(i +2 < MAX_ITEMS)
+                {
+                    result[result_index++] = ',';
+                }
+            }
         }
     }
+    result[result_index] = '\0'; // Null-terminate the result array
+    printf("%s", result);
     printf("]\n");
-
+    
     return 0;
 }
