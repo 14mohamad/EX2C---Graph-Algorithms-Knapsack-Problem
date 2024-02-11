@@ -43,10 +43,26 @@ int knapSack(int weights[], int values[], int selected_bool[])
 
 int main() {
     char items[] = {'A', 'B', 'C', 'D', 'E'};
-    int values[] = {35, 60, 100, 120, 130};
-    int weights[] = {2, 5, 6, 9, 7};
-    int selected_bool[ARRAY_SIZE] = {0}; // Array to track selected items
+    int i = 0;
+    int values[ARRAY_SIZE] = {0};
+    for ( i = 0; i < ARRAY_SIZE; i++)
+    {
+        printf("Enter number for values %d: ", i + 1);
+        scanf("%d", &values[i]);
+    }
+    printf("\n");
 
+    int weights[ARRAY_SIZE] = {0};
+    for ( i = 0; i < ARRAY_SIZE; i++)
+    {
+
+        printf("Enter number for weights %d: ", i + 1);
+        scanf("%d", &weights[i]);
+    }
+    printf("\n");
+
+
+    int selected_bool[ARRAY_SIZE] = {0}; // Array to track selected items
     int maxProfit = knapSack(weights, values, selected_bool);
     printf("Maximum profit: %d\nItems that give the maximum profit: [", maxProfit);
     
