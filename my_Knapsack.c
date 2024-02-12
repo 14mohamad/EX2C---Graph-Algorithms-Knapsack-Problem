@@ -35,12 +35,12 @@ int knapSack(int weights[], int values[], int selected_bool[]) {
 }
 
 int main() {
-   int weights[MAX_ITEMS], values[MAX_ITEMS], selected_bool[MAX_ITEMS] = {0};
+    int values[MAX_ITEMS], weights[MAX_ITEMS], selected_bool[MAX_ITEMS] = {0};
+    char ch;
 
 
     for (int i = 0; i < MAX_ITEMS; ++i) {
-        char name;
-        scanf(" %c %d %d", &name, &values[i], &weights[i]);
+        scanf(" %c %d %d", &ch, &values[i], &weights[i]);
     }
 
 
