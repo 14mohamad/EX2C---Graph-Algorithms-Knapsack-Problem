@@ -5,7 +5,8 @@
 
 int knapSack(int weights[], int values[], int selected_bool[]) {
     int dp[MAX_ITEMS + 1][MAX_WEIGHT + 1];
-    int i, w;
+    int i
+, w;
 
     for (i = 0; i <= MAX_ITEMS; i++) {
         for (w = 0; w <= MAX_WEIGHT; w++) {
@@ -35,32 +36,24 @@ int knapSack(int weights[], int values[], int selected_bool[]) {
 }
 
 int main() {
-    char items[MAX_ITEMS] = {'a', 'b', 'c', 'd', 'e'};
     int values[MAX_ITEMS], weights[MAX_ITEMS], selected_bool[MAX_ITEMS] = {0};
     int i;
-    char result[MAX_ITEMS * 2 + 1];
 
-    printf("Enter the values and weights for each item:\n");
+
     for (i = 0; i < MAX_ITEMS; i++) {
-        printf("Enter value and weight for item %c: ", items[i]);
-        scanf("%d %d", &values[i], &weights[i]);
+        char c;
+        scanf(" %c %d %d", &c, &values[i], &weights[i]);
     }
 
     printf("\nMaximum profit: %d\n", knapSack(weights, values, selected_bool));
-    printf("Items that give the maximum profit: [");
-    int result_index = 0;
+    printf("Selected items:");
+
     for (i = 0; i < MAX_ITEMS; i++) {
         if (selected_bool[i] == 1) {
-            result[result_index++] = items[i];
-            if (result_index < MAX_ITEMS * 2 - 1)
-            {
-                if(i +2 < MAX_ITEMS)
-                    result[result_index++] = ' ';
-            }
+                printf(" %c", 'a' + i);
+
         }
     }
-    printf("%s", result);
-    printf("]\n");
     
     return 0;
 }
